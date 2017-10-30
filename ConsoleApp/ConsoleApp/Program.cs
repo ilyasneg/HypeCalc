@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalcLibrary;
 
 namespace ConsoleApp
 {
@@ -11,18 +12,16 @@ namespace ConsoleApp
         //operation x y
         static void Main(string[] args)
         {
+            var calc = new Calculator();
             Console.WriteLine("Hype Calc");
 
             if (args.Count() == 3)
             {
                 var operation = args[0];
-                var x = args[1];
-                var y = args[2];
-                double result;
 
                 if (operation == "sum")
                 {
-                    result = double.Parse(x) + double.Parse(y);
+                    Console.WriteLine(calc.Sum(args[1], args[2]));
                 }
             }
 
