@@ -19,10 +19,43 @@ namespace ConsoleApp
             {
                 var operation = args[0];
 
-                if (operation == "sum")
+                do
                 {
-                    Console.WriteLine(calc.Sum(args[1], args[2]));
-                }
+                    try
+                    {
+                        switch (operation)
+                        {
+                            case "sum":
+                                Console.WriteLine(calc.Sum(args[1], args[2]));
+                                break;
+                            case "sub":
+                                Console.WriteLine(calc.Sub(args[1], args[2]));
+                                break;
+                            case "mult":
+                                Console.WriteLine(calc.Mult(args[1], args[2]));
+                                break;
+                            case "div":
+                                Console.WriteLine(calc.Div(args[1], args[2]));
+                                break;
+                            case "pow":
+                                Console.WriteLine(calc.Pow(args[1], args[2]));
+                                break;
+                            case "mod":
+                                Console.WriteLine(calc.Mod(args[1], args[2]));
+                                break;
+                            case "exit":
+                                return;
+                            default:
+                                Console.WriteLine("Нет такой операции");
+                                break;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    operation = Console.ReadLine();
+                } while (true);
             }
 
             Console.ReadKey();
